@@ -82,17 +82,25 @@ table td img{
 }
 
 .resultado{
-    padding: 8px;
+    padding: 12px;
     font-weight: bold;
     color: #FFF;
     background-color: #000;
-    border-radius: 8px;
+    border-radius: 20px;
 }
 
 .aprovado{
-    background-color: rgb(81, 184, 81, 0.7);
+    background-color: rgb(81, 184, 81);
+    padding: 12px;
+    font-weight: bold;
+    color: #FFF;
+    border-radius: 20px;
 }
 
 .reprovado {
-    background-color: rgb(192, 19, 19, 0.7);
+    background-color: rgb(192, 19, 19);
+    padding: 12px;
+    font-weight: bold;
+    color: #FFF;
+    border-radius: 20px;
 }

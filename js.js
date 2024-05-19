@@ -3,6 +3,9 @@ const aprovadoimg = '<img src="./images/aprovado.png" alt="Aproved" />';
 const Reprovadoimg = '<img src="./images/reprovado.png" alt="miss" />';
 const AttNome = [];
 const Nota = [];
+const spanapro = '<span class="aprovado">Aprovado</span>'
+const spanrep = '<span class="reprovado">Reprovado</span>'
+const notaminima = parseFloat(prompt('Digite a nota minima: '));
 
 let linhas = '';
 
@@ -18,19 +21,20 @@ function adicionarLinha() {
     const inputNome = document.getElementById('AttNome');
     const inputValor = document.getElementById('Nota');
 
-    AttNome.push(inputNome.value)
-    Nota.push(inputValor.value)
+    AttNome.push(inputNome.value);
+    Nota.push(parseFloat(inputValor.value));
 
     let linha = '<tr>';
     linha += `<td>${inputNome.value}</td>`;
     linha += `<td>${inputValor.value}</td>`;
-    linha += `<td>${inputValor.value >= 7 ? aprovadoimg : Reprovadoimg}</td>`;
+    linha += `<td>${inputValor.value >= notaminima ? aprovadoimg : Reprovadoimg}</td>`;
     linha += '</tr>';
 
     linhas += linha
 
     inputNome.value = '';
     inputValor.value = '';
+
 }
 
 function atualizaT() {
@@ -39,11 +43,18 @@ function atualizaT() {
 }
 
 function atualizaM() {
+    const médiaF = calculamédiaF();
+
+    document.getElementById('Média').innerHTML = médiaF
+    document.getElementById('MédiaIMG').innerHTML = médiaF >= notaminima ? spanapro : spanrep;
+}
+
+function calculamédiaF(){
     let somadasnotas = 0;
 
     for (let i = 0; i < Nota.length; i++){
         somadasnotas += Nota[i];
     }
 
-    console.log(somadasnotas);
+    return somadasnotas / Nota.length;
 }
