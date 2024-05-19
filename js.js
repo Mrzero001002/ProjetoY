@@ -21,6 +21,9 @@ function adicionarLinha() {
     const inputNome = document.getElementById('AttNome');
     const inputValor = document.getElementById('Nota');
 
+    if(AttNome.includes(inputNome.value)){
+        alert(`A atividade ${inputNome.value} já existe.`);
+    } else{
     AttNome.push(inputNome.value);
     Nota.push(parseFloat(inputValor.value));
 
@@ -34,7 +37,7 @@ function adicionarLinha() {
 
     inputNome.value = '';
     inputValor.value = '';
-
+    }
 }
 
 function atualizaT() {
